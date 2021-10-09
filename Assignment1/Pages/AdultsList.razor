@@ -1,0 +1,119 @@
+﻿@page "/AdultsList"
+
+@using Assignment1.Models
+@using Assignment1.Data
+
+@inject IAdult Adult
+@inject NavigationManager NavigationManager
+
+<h3>
+    AdultsList <button @onclick="AddAdult" class="btn btn-outline-dark" type="submit">Add</button>
+</h3>
+
+<p>
+    Filter by AdultID: <input type="number" @oninput="@((arg) => FilterByAdultId(arg))" style="width:50px"/>
+</p>
+
+@if (personsToShow == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else if (!personsToShow.Any())
+{
+    <p>
+        <em>There are'nt any persons. Please add some.</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Adult ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Hair Color</th>
+            <th>Eye Color</th>
+            <th>Age</th>
+            <th>Weight</th>
+            <th>Sex</th>
+            @* <th>Remove</th> *@
+            @* <th>Edit</th> *@
+        </tr>
+        </thead>
+        <tbody>
+
+        @foreach (var person in personsToShow)
+        {
+            <tr>
+                <td>@person.Id</td>
+                <td>@person.FirstName</td>
+                <td>@person.LastName</td>
+                <td>@person.HairColor</td>
+                <td>@person.EyeColor</td>
+                <td>@person.Age</td>
+                <td>@person.Weight</td>
+                <td>@person.Sex</td>
+                @* <td> *@
+                @*     <input type="checkbox" checked=@person.IsCompleted @onchange="@((arg) => CompletedChange(arg, person))"/> *@
+                @* </td> *@
+                @* <td> *@
+                @*     <button @onclick="@(() => RemoveTodo(person.TodoId))"> *@
+                @*         <i class="oi oi-trash" style="color:red"/> *@
+                @*     </button> *@
+                @* </td> *@
+                @* <td> *@
+                @*     <button @onclick="@(() => EditTodo(person.TodoId))"> *@
+                @*         <i class="oi oi-pencil" style="color:#1b6ec2"/> *@
+                @*     </button> *@
+                @* </td> *@
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+
+@code {
+
+    public IList<Person> Persons { get; set; }
+    public Person Person { get; set; }
+
+    private IList<Person> personsToShow;
+    private IList<Person> allPersons;
+
+    private int? filterById;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Persons = Adult.Persons;
+    }
+
+    public void AddAdult()
+    {
+        NavigationManager.NavigateTo("/AddAdult");
+    }
+
+    private void FilterByAdultId(ChangeEventArgs changeEventArgs)
+    {
+        filterById = null;
+        try
+        {
+            filterById = int.Parse(changeEventArgs.Value.ToString());
+        }
+        catch (Exception e)
+        {
+        }
+
+        ExecuteFilter();
+    }
+
+    // Apply the filter for the input given by the user
+    private void ExecuteFilter()
+    {
+        personsToShow = allPersons.Where(t => (filterById != null && t.Id == filterById || filterById == null)).ToList();
+    }
+
+}
