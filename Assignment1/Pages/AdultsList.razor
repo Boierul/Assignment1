@@ -14,13 +14,13 @@
     Filter by AdultID: <input type="number" @oninput="@((arg) => FilterByAdultId(arg))" style="width:50px"/>
 </p>
 
-@if (personsToShow == null)
+@if (Persons == null)
 {
     <p>
         <em>Loading...</em>
     </p>
 }
-else if (!personsToShow.Any())
+else if (!Persons.Any())
 {
     <p>
         <em>There are'nt any persons. Please add some.</em>
@@ -45,7 +45,7 @@ else
         </thead>
         <tbody>
 
-        @foreach (var person in personsToShow)
+        @foreach (var person in Persons)
         {
             <tr>
                 <td>@person.Id</td>
@@ -81,7 +81,6 @@ else
     public IList<Person> Persons { get; set; }
     public Person Person { get; set; }
 
-    private IList<Person> personsToShow;
     private IList<Person> allPersons;
 
     private int? filterById;
@@ -113,7 +112,7 @@ else
     // Apply the filter for the input given by the user
     private void ExecuteFilter()
     {
-        personsToShow = allPersons.Where(t => (filterById != null && t.Id == filterById || filterById == null)).ToList();
+        Persons = allPersons.Where(t => (filterById != null && t.Id == filterById || filterById == null)).ToList();
     }
 
 }

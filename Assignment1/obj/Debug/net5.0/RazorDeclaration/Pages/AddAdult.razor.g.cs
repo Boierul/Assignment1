@@ -105,19 +105,21 @@ using Assignment1.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 53 "C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\Pages\AddAdult.razor"
+#line 54 "C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\Pages\AddAdult.razor"
        
     private Person newPerson = new Person();
 
     private void AddNewPerson()
     {
         Adult.AddNewPerson(newPerson);
+        NavigationManager.NavigateTo("/AdultsList");
     }
 
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IAdult Adult { get; set; }
     }
 }

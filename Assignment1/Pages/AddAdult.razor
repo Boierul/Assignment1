@@ -4,6 +4,7 @@
 @using Assignment1.Data
 
 @inject IAdult Adult
+@inject NavigationManager NavigationManager
 
 <h3>
     AddTodo
@@ -56,6 +57,7 @@
     private void AddNewPerson()
     {
         Adult.AddNewPerson(newPerson);
+        NavigationManager.NavigateTo("/AdultsList");
     }
 
 }

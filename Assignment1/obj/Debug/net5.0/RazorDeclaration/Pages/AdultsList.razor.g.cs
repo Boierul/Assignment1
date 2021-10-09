@@ -111,7 +111,6 @@ using Assignment1.Data;
     public IList<Person> Persons { get; set; }
     public Person Person { get; set; }
 
-    private IList<Person> personsToShow;
     private IList<Person> allPersons;
 
     private int? filterById;
@@ -143,7 +142,7 @@ using Assignment1.Data;
     // Apply the filter for the input given by the user
     private void ExecuteFilter()
     {
-        personsToShow = allPersons.Where(t => (filterById != null && t.Id == filterById || filterById == null)).ToList();
+        Persons = allPersons.Where(t => (filterById != null && t.Id == filterById || filterById == null)).ToList();
     }
 
 
