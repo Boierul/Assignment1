@@ -61,11 +61,6 @@ else
                         <i class="oi oi-trash" style="color:red"/>
                     </button>
                 </td>
-                @* <td> *@
-                @*     <button @onclick="@(() => EditTodo(person.TodoId))"> *@
-                @*         <i class="oi oi-pencil" style="color:#1b6ec2"/> *@
-                @*     </button> *@
-                @* </td> *@
             </tr>
         }
         </tbody>
@@ -96,7 +91,6 @@ else
     {
         Person personToRemove = Persons.First(t => t.Id == personId);
         Adult.RemovePerson(personId);
-        allPersons.Remove(personToRemove);
         Persons.Remove(personToRemove);
     }
     

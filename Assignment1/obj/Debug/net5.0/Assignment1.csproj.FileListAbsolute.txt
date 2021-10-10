@@ -54,7 +54,6 @@ C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\obj\Debug\net5.0\Assignment
 C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\obj\Debug\net5.0\Assignment1.csproj.CopyComplete
 C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\obj\Debug\net5.0\RazorDeclaration\Pages\AdultsList.razor.g.cs
 C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\obj\Debug\net5.0\Razor\Pages\AdultsList.razor.g.cs
-C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\bin\Debug\net5.0\Adults.json
 C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\obj\Debug\net5.0\RazorDeclaration\Pages\AddAdult.razor.g.cs
 C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\obj\Debug\net5.0\Razor\Pages\AddAdult.razor.g.cs
 C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\obj\Debug\net5.0\RazorDeclaration\Pages\Login.razor.g.cs

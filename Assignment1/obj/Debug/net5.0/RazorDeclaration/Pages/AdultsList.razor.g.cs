@@ -129,7 +129,7 @@ using Assignment1.Data;
     {
         Person personToRemove = Persons.First(t => t.Id == personId);
         Adult.RemovePerson(personId);
-        allPersons.Remove(personToRemove);
+        // allPersons.Remove(personToRemove);
         Persons.Remove(personToRemove);
     }
     
