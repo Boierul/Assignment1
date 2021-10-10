@@ -39,7 +39,7 @@ else
             <th>Age</th>
             <th>Weight</th>
             <th>Sex</th>
-            @* <th>Remove</th> *@
+            <th>Remove</th>
             @* <th>Edit</th> *@
         </tr>
         </thead>
@@ -56,14 +56,11 @@ else
                 <td>@person.Age</td>
                 <td>@person.Weight</td>
                 <td>@person.Sex</td>
-                @* <td> *@
-                @*     <input type="checkbox" checked=@person.IsCompleted @onchange="@((arg) => CompletedChange(arg, person))"/> *@
-                @* </td> *@
-                @* <td> *@
-                @*     <button @onclick="@(() => RemoveTodo(person.TodoId))"> *@
-                @*         <i class="oi oi-trash" style="color:red"/> *@
-                @*     </button> *@
-                @* </td> *@
+                <td>
+                    <button @onclick="@(() => RemoveAdult(person.Id))">
+                        <i class="oi oi-trash" style="color:red"/>
+                    </button>
+                </td>
                 @* <td> *@
                 @*     <button @onclick="@(() => EditTodo(person.TodoId))"> *@
                 @*         <i class="oi oi-pencil" style="color:#1b6ec2"/> *@
@@ -95,6 +92,14 @@ else
         NavigationManager.NavigateTo("/AddAdult");
     }
 
+    private void RemoveAdult(int personId)
+    {
+        Person personToRemove = Persons.First(t => t.Id == personId);
+        Adult.RemovePerson(personId);
+        allPersons.Remove(personToRemove);
+        Persons.Remove(personToRemove);
+    }
+    
     private void FilterByAdultId(ChangeEventArgs changeEventArgs)
     {
         filterById = null;
@@ -114,5 +119,6 @@ else
     {
         Persons = allPersons.Where(t => (filterById != null && t.Id == filterById || filterById == null)).ToList();
     }
+
 
 }

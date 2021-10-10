@@ -8,5 +8,6 @@ namespace Assignment1.Data
     {
         public IList<Person> Persons { get; }
         public void AddNewPerson(Person person);
+        public void RemovePerson(int Id);
     }
 }

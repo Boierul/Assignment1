@@ -11,14 +11,14 @@ namespace Assignment1.Data.Impl
         public IList<Person> Persons { get; private set; }
 
         private string personsFile = "Adults.json";
+        private IList<Person> persons;
 
         public Adult()
         {
             if (!File.Exists(personsFile))
             {
                 Seed();
-                string personsAsJson = JsonSerializer.Serialize(Persons);
-                File.WriteAllText(personsFile, personsAsJson);
+                WriteTodosToFile();
             }
             else
             {
@@ -32,7 +32,13 @@ namespace Assignment1.Data.Impl
             Persons.Add(person);
             WriteTodosToFile();
         }
-        
+
+        public void RemovePerson(int Id)
+        {
+            Persons.Remove(Persons.First(t => t.Id == Id));
+            WriteTodosToFile();
+        }
+
         private void WriteTodosToFile()
         {
             string todosAsJson = JsonSerializer.Serialize(Persons);
