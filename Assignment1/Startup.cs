@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Assignment1.Authentication;
 using Assignment1.Data;
 using Assignment1.Data.Impl;
+using Assignment1.Data.Implementation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
@@ -30,6 +33,15 @@ namespace Assignment1
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddScoped<IAdult, Adult>();
+            services.AddScoped<IUserService, InMemoryUserService>();
+            services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+
+            services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("MustBeAdult", a =>
+                        a.RequireAuthenticatedUser().RequireClaim("Role", "Adult"));
+                }
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
