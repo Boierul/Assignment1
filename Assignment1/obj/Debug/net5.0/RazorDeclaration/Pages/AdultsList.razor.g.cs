@@ -105,7 +105,7 @@ using Assignment1.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 70 "C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\Pages\AdultsList.razor"
+#line 71 "C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\Pages\AdultsList.razor"
        
 
     public IList<Person> Persons { get; set; }
@@ -149,15 +149,8 @@ using Assignment1.Data;
     // Apply the filter for the input given by the user
     private void ExecuteFilter()
     {
-        Persons = allPersons.Where(t => (filterById != null && t.Id == filterById || filterById == null)).ToList();
+        Persons = Persons.Where(t => (filterById != null && t.Id == filterById || filterById == null)).ToList();
     }
-
-    private enum MyEnum
-    {
-        Black,
-        Blonde,
-    }
-
 
 #line default
 #line hidden

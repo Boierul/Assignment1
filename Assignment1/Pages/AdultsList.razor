@@ -7,11 +7,12 @@
 @inject NavigationManager NavigationManager
 
 <h3>
-    AdultsList <button @onclick="AddAdult" class="btn btn-outline-dark" type="submit">Add</button>
+    AdultsList
+    <button @onclick="AddAdult" class="btn btn-outline-dark" type="submit">Add</button>
 </h3>
 
 <p>
-    Filter by AdultID: <input type="number" @oninput="@(FilterByAdultId)" style="width:50px"/>
+    Filter by Adult ID: <input type="number" @oninput="@(FilterByAdultId)" style="width:50px"/>
 </p>
 
 @if (Persons == null)
@@ -110,13 +111,6 @@ else
     // Apply the filter for the input given by the user
     private void ExecuteFilter()
     {
-        Persons = allPersons.Where(t => (filterById != null && t.Id == filterById || filterById == null)).ToList();
+        Persons = Persons.Where(t => (filterById != null && t.Id == filterById || filterById == null)).ToList();
     }
-
-    private enum MyEnum
-    {
-        Black,
-        Blonde,
-    }
-
 }
