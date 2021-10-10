@@ -60,3 +60,4 @@ C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\obj\Debug\net5.0\RazorDecla
 C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\obj\Debug\net5.0\RazorDeclaration\Pages\SecurityLevel.razor.g.cs
 C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\obj\Debug\net5.0\Razor\Pages\Login.razor.g.cs
 C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\obj\Debug\net5.0\Razor\Pages\SecurityLevel.razor.g.cs
+C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\bin\Debug\net5.0\Adults.json

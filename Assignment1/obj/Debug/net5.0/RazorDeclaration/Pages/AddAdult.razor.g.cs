@@ -105,7 +105,7 @@ using Assignment1.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 54 "C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\Pages\AddAdult.razor"
+#line 64 "C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\Pages\AddAdult.razor"
        
     private Person newPerson = new Person();
 

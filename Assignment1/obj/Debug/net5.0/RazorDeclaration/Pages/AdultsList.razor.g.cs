@@ -105,7 +105,7 @@ using Assignment1.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 76 "C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\Pages\AdultsList.razor"
+#line 70 "C:\Users\Nacia\RiderProjects\Assignment1\Assignment1\Pages\AdultsList.razor"
        
 
     public IList<Person> Persons { get; set; }
@@ -129,10 +129,9 @@ using Assignment1.Data;
     {
         Person personToRemove = Persons.First(t => t.Id == personId);
         Adult.RemovePerson(personId);
-        // allPersons.Remove(personToRemove);
         Persons.Remove(personToRemove);
     }
-    
+
     private void FilterByAdultId(ChangeEventArgs changeEventArgs)
     {
         filterById = null;
@@ -153,6 +152,11 @@ using Assignment1.Data;
         Persons = allPersons.Where(t => (filterById != null && t.Id == filterById || filterById == null)).ToList();
     }
 
+    private enum MyEnum
+    {
+        Black,
+        Blonde,
+    }
 
 
 #line default

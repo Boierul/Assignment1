@@ -27,11 +27,21 @@
     </div>
     <div class="form-group">
         Hair Color:<br/>
-        <InputTextArea rows="1" @bind-Value="newPerson.HairColor"/>
+        <select @bind="newPerson.HairColor">
+            @foreach (var value in Enum.GetValues(typeof(HairColors)))
+            {
+                <option>@value</option>
+            }
+        </select>
     </div>
     <div class="form-group">
         Eye Color:<br/>
-        <InputTextArea rows="1" @bind-Value="newPerson.EyeColor"/>
+        <select @bind="newPerson.EyeColor">
+                    @foreach (var value in Enum.GetValues(typeof(EyeColor)))
+                    {
+                        <option>@value</option>
+                    }
+                </select>
     </div>
     <div class="form-group">
         Age:<br/>

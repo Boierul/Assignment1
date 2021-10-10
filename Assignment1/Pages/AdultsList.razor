@@ -11,7 +11,7 @@
 </h3>
 
 <p>
-    Filter by AdultID: <input type="number" @oninput="@((arg) => FilterByAdultId(arg))" style="width:50px"/>
+    Filter by AdultID: <input type="number" @oninput="@(FilterByAdultId)" style="width:50px"/>
 </p>
 
 @if (Persons == null)
@@ -40,7 +40,6 @@ else
             <th>Weight</th>
             <th>Sex</th>
             <th>Remove</th>
-            @* <th>Edit</th> *@
         </tr>
         </thead>
         <tbody>
@@ -93,7 +92,7 @@ else
         Adult.RemovePerson(personId);
         Persons.Remove(personToRemove);
     }
-    
+
     private void FilterByAdultId(ChangeEventArgs changeEventArgs)
     {
         filterById = null;
@@ -114,5 +113,10 @@ else
         Persons = allPersons.Where(t => (filterById != null && t.Id == filterById || filterById == null)).ToList();
     }
 
+    private enum MyEnum
+    {
+        Black,
+        Blonde,
+    }
 
 }
